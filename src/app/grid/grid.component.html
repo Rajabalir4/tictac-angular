@@ -1,0 +1,12 @@
+<h1>Current player {{ player }}</h1>
+<button (click)="resetGame()">Reset the game</button>
+<h2 *ngIf="this.winner; else showBoard">winner is {{ winner }}</h2>
+<ng-template #showBoard>
+  <div class="container">
+    <app-block
+      *ngFor="let i of grid; let i = index"
+      [value]="i"
+      (click)="handleMove(i)"
+    ></app-block>
+  </div>
+</ng-template>
